@@ -5,7 +5,7 @@ import './style.css';
 export default class TodoList extends Component {
 
   render() {
-    const { todos, handleClick } = this.props;
+    const { todos, handleClick, removeItem } = this.props;
     return (
       <main className="main">
         <ul>
@@ -14,8 +14,10 @@ export default class TodoList extends Component {
                 <TodoItem
                   key={index}
                   index={index}
+                  id={todo.id}
                   todo={todo}
                   handleClick={handleClick}
+                  removeItem={removeItem}
                 />
               )
             })}

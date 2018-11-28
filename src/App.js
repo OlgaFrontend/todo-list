@@ -10,13 +10,13 @@ class App extends Component {
     todos: [],
   }
 
-  _handleChange = (evt) => {
+  handleChange = (evt) => {
     this.setState({
       inputValue: evt.target.value
     });
   }
 
-  _handleSubmit = (evt) => {
+  handleSubmit = (evt) => {
     evt.preventDefault();
 
     const newTodo = {
@@ -32,12 +32,19 @@ class App extends Component {
     });
   }
 
-  _handleClick = (index) => {
-    console.log('button click', index );
-
+  handleClick = (index) => {
     const todos = this.state.todos;
     todos[index].done = !todos[index].done;
     this.setState({ todos });
+  }
+
+  removeItem = (id) => {
+    const newTodos = [...this.state.todos].filter(v => v.id !== id);
+
+    this.setState({
+      ...this.state,
+      todos: [...newTodos]
+    })
   }
 
   render() {
@@ -47,12 +54,13 @@ class App extends Component {
       <div className="App">
         <Header 
           inputValue = {inputValue}
-          handleChange = {this._handleChange}
-          handleSubmit = {this._handleSubmit}
+          handleChange = {this.handleChange}
+          handleSubmit = {this.handleSubmit}
         />
         <TodoList
           todos = {todos}
-          handleClick = {this._handleClick}
+          handleClick = {this.handleClick}
+          removeItem = {this.removeItem}
         />
       </div>
     );
