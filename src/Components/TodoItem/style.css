@@ -1,4 +1,54 @@
 .todoitem {
   list-style: none;
   display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid burlywood;
+  margin-bottom: 15px;
 }
+
+.todoitem__text {
+  flex-grow: 1;
+}
+
+.options {
+  margin-right: 10px;
+}
+
+.options-complete,
+.options-undo {
+  display: inline-block;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid burlywood;
+  outline: none;
+}
+
+.options-undo {
+  background: burlywood;
+}
+
+.options-complete {
+  background: white;
+}
+
+.remove__btn {
+  display: inline-block;
+  width: 40px;
+  height: 30px;
+  border: 2px solid burlywood;
+  background-color: white;
+  outline: none;
+  position: relative;
+}
+
+.remove__btn:before {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 3px;
+  background-color: burlywood;
+  transform: translateX(-50%);
+}
+

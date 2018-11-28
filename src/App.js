@@ -52,16 +52,18 @@ class App extends Component {
 
     return (
       <div className="App">
+      <div className="App-wrapper">
         <Header 
-          inputValue = {inputValue}
-          handleChange = {this.handleChange}
-          handleSubmit = {this.handleSubmit}
+            inputValue = {inputValue}
+            handleChange = {this.handleChange}
+            handleSubmit = {this.handleSubmit}
         />
         <TodoList
-          todos = {todos}
-          handleClick = {this.handleClick}
-          removeItem = {this.removeItem}
+            todos = {todos}
+            handleClick = {this.handleClick}
+            removeItem = {this.removeItem}
         />
+      </div>
       </div>
     );
   }

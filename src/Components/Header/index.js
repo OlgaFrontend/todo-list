@@ -11,12 +11,12 @@ export default class Header extends Component {
         <h2>Todo List</h2>
           <form className="form-group" onSubmit={(evt) => handleSubmit(evt)}>
             <input 
-              className="input" 
+              className="form-group__input" 
               placeholder = "enter your new task" 
               value = {inputValue}
               onChange = {(evt) => handleChange(evt)}
             />
-            <button>Add task</button>
+            <button className="form-group__btn">Add task</button>
           </form>
       </header>
     )

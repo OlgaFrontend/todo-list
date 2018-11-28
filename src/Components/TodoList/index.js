@@ -8,7 +8,7 @@ export default class TodoList extends Component {
     const { todos, handleClick, removeItem } = this.props;
     return (
       <main className="main">
-        <ul>
+        <ul className="todolist">
             {todos.map((todo, index) => {
               return (
                 <TodoItem
