@@ -21,16 +21,16 @@ class App extends Component {
 
   _handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log('submit fired');
 
     const newTodo = {
-      value: this.state.todos,
-      done: false
+      value: this.state.inputValue,
+      done: false,
     }
 
-    const todos = this.state.todos;
-    todos.push(newTodo);
-    this.setState({ todos: todos });
+    this.setState({
+      ...this.state,
+      todos: [...this.state.todos, newTodo]
+    });
   }
 
   render() {
