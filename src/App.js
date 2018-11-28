@@ -7,10 +7,7 @@ class App extends Component {
 
   state = {
     inputValue: '',
-    todos: [
-      {value: 'learn react', done: false},
-      {value: 'learn js', done: true},
-    ],
+    todos: [],
   }
 
   _handleChange = (evt) => {
@@ -23,14 +20,24 @@ class App extends Component {
     evt.preventDefault();
 
     const newTodo = {
+      id: Math.random(),
       value: this.state.inputValue,
       done: false,
     }
 
     this.setState({
       ...this.state,
-      todos: [...this.state.todos, newTodo]
+      todos: [...this.state.todos, newTodo],
+      inputValue: '',
     });
+  }
+
+  _handleClick = (index) => {
+    console.log('button click', index );
+
+    const todos = this.state.todos;
+    todos[index].done = !todos[index].done;
+    this.setState({ todos });
   }
 
   render() {
@@ -44,7 +51,8 @@ class App extends Component {
           handleSubmit = {this._handleSubmit}
         />
         <TodoList
-          todos = {todos} 
+          todos = {todos}
+          handleClick = {this._handleClick}
         />
       </div>
     );

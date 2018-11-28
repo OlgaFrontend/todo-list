@@ -4,7 +4,7 @@ import './style.css';
 export default class TodoItem extends Component {
 
   render() {
-    const { todo } = this.props;
+    const { todo, handleClick, index } = this.props;
 
     return (
       <li className="todoitem">
@@ -16,7 +16,7 @@ export default class TodoItem extends Component {
           </span>
         </div>
         <div className="options">
-          <button>{todo.done ? 'Undo' : 'Complete'}</button>
+          <button onClick={() => handleClick(index)}>{todo.done ? 'Undo' : 'Complete'}</button>
         </div>
       </li>
     )
