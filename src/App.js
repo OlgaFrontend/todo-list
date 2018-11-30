@@ -38,6 +38,15 @@ class App extends Component {
     this.setState({ todos });
   }
 
+  editItem = (e) => {
+    e.preventDefault();
+
+    this.setState({
+      ...this.state,
+      inputValue: e.target.value,
+    });
+  }
+
   removeItem = (id) => {
     const newTodos = [...this.state.todos].filter(v => v.id !== id);
 
@@ -62,6 +71,7 @@ class App extends Component {
             todos = {todos}
             handleClick = {this.handleClick}
             removeItem = {this.removeItem}
+            editItem = {this.editItem}
         />
       </div>
       </div>
